@@ -60,14 +60,18 @@ if __name__ == '__main__':
     import sys
     import time
 
-    host = "192.168.1.10"
-    port = 502
+
+    if len(sys.argv) < 3:
+        print("Inserire 3 argomenti: [ID] [IP] [PORT] ")
+
+    host = sys.argv[2]
+    port = int(sys.argv[3])
     client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     client.connect((host,port))
     #Prende il grafico
     #get_graph = b"\x00\x00\x00\x00\x00\x06\x01\x03\xc0\x00\x00\x30"
     get_something = []
-    get_something.append(b"\x00\x00\00\x00\x00\x06\x01\x03\x30\x80\x00\x01")
+    get_something.append(b"\x00\x00\x00\x00\x00\x06\x01\x03\xc0\x00\x00\x30")
     get_something.append(b"\x00\x00\00\x00\x00\x06\x01\x03\x10\x1e\x00\x02")
     get_something.append(b"\x00\x00\00\x00\x00\x06\x01\x03\x10\x1d\x00\x01")
     get_something.append(b"\x00\x00\00\x00\x00\x06\x01\x03\x10\x3d\x00\x01")
@@ -82,7 +86,8 @@ if __name__ == '__main__':
     get_something.append(b"\x00\x00\00\x00\x00\x06\x01\x03\x10\x1c\x00\x01")
     get_something.append(b"\x00\x00\00\x00\x00\x06\x01\x03\x10\x23\x00\x02")
     get_something.append(b"\x00\x00\00\x00\x00\x06\x01\x03\x10\x20\x00\x01")
-    get_something.append(b"\x00\x00\x00\x00\x00\x06\x01\x03\xc0\x00\x00\x30")
+    get_something.append(b"\x00\x00\00\x00\x00\x06\x01\x03\x30\x80\x00\x01")
+    
 
 #4 Total Energy?????????
 #5 ACTUAL POWER
@@ -94,11 +99,11 @@ if __name__ == '__main__':
     while(1):
         q = "Y"
         if(q == "Y"):
-            Graph = getData(15)
-            if sys.argv[1] != '15':
+            Graph = getData(0)
+            if sys.argv[1] != '0':
                 print(getData(sys.argv[1]))
             else:
-                createVisualGraph(getData(15))
+                createVisualGraph(getData(0))
                 showPower(getData(5))
                 showTemperature(getData(12))
             time.sleep(10)

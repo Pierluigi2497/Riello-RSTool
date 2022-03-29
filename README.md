@@ -7,6 +7,6 @@ Come funziona?
 <br />
 Come utilizzare lo script? <br />
 --Example: python main.py [id] [ip address] [port] <br />
---ID: variabile per il debug dell'applicazione, per ricevere i dati di produzione giornaliera, produzione istantanea, temperatura dell'inverter, utilizzare ID: 15 <br />
+--ID: variabile per il debug dell'applicazione, per ricevere i dati di produzione giornaliera, produzione istantanea, temperatura dell'inverter, utilizzare ID: 0 <br />
 --IP: indirizzo ip utilizzato dall'inverter per collegarsi in wi-fi <br />
 --PORT: porta utilizzata dall'inverter per comunicare, di default è 502 <br />
